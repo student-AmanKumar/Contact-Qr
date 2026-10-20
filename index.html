@@ -1,0 +1,365 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3e9">
+<meta name="description" content="Connect with Aman Kumar — Web Developer & Digital Creator.">
+<title>Aman Kumar | Digital Contact</title>
+
+<style>
+:root {
+  --cream:#f7f3e9;
+  --white:#fffdf7;
+  --green:#234c3b;
+  --deep:#173629;
+  --gold:#c49a48;
+  --ink:#202b24;
+  --muted:#68746b;
+  --line:#e5dfd0;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; min-height:100vh; padding:26px 14px;
+  display:grid; place-items:center;
+  background:
+    radial-gradient(circle at 5% 5%,#e8e0c9,transparent 35%),
+    radial-gradient(circle at 95% 95%,#dce5d9,transparent 30%),
+    var(--cream);
+  color:var(--ink);
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+a,button { -webkit-tap-highlight-color:transparent; }
+.wrap { width:min(100%,450px); }
+.card {
+  overflow:hidden;
+  background:var(--white);
+  border:1px solid #e7dfcd;
+  border-radius:27px;
+  box-shadow:0 24px 65px #273b2818;
+  animation:appear .7s ease both;
+}
+.hero {
+  height:150px; position:relative; overflow:hidden;
+  background:linear-gradient(125deg,#183b2d,#2e6047 65%,#527456);
+}
+.hero:before {
+  content:""; position:absolute; width:260px;height:260px;
+  border:1px solid #d9c18b77;border-radius:50%;
+  right:-65px;top:-170px;
+  box-shadow:0 0 0 18px #ffffff06,0 0 0 38px #ffffff04;
+}
+.brand {
+  position:absolute;top:18px;left:20px;
+  display:flex;align-items:center;gap:9px;
+  color:#fff9e9;font-size:10px;
+  letter-spacing:.15em;font-weight:800;
+}
+.brand-mark {
+  width:29px;height:29px;border:1px solid #d6bb7a;
+  border-radius:50%;display:grid;place-items:center;
+  color:#f0d69b;font-family:Georgia,serif;
+}
+.landscape { position:absolute;bottom:-1px;width:100%;height:65px; }
+.landscape svg { width:100%;height:100%;display:block; }
+.profile { padding:0 25px 27px;text-align:center; }
+.avatar-wrap {
+  width:112px;height:112px;padding:5px;margin:-55px auto 15px;
+  position:relative;z-index:2;border-radius:50%;
+  background:var(--white);box-shadow:0 6px 18px #152f221c;
+}
+.avatar {
+  width:100%;height:100%;overflow:hidden;border-radius:50%;
+  border:1px solid #d7c69b;background:#eee8d8;
+  display:grid;place-items:center;color:var(--green);
+  font:32px Georgia,serif;
+}
+.avatar img { width:100%;height:100%;object-fit:cover; }
+h1 {
+  margin:0;color:#1f3e30;
+  font:500 clamp(30px,8vw,38px) Georgia,serif;
+  letter-spacing:-.04em;
+}
+.role { margin:9px 0 0;color:var(--muted);font-size:13px; }
+.status {
+  display:inline-flex;align-items:center;gap:7px;margin-top:15px;
+  padding:7px 11px;border:1px solid #dce6d9;border-radius:50px;
+  background:#f0f5ed;color:#426346;font-size:9px;font-weight:800;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.status i { width:6px;height:6px;border-radius:50%;background:#7a9c68; }
+.rule {
+  height:1px;margin:22px 0 19px;
+  background:linear-gradient(90deg,transparent,var(--line),transparent);
+}
+.actions { display:grid;grid-template-columns:1fr 1fr;gap:9px; }
+.action {
+  min-height:48px;padding:12px 9px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  border:1px solid var(--line);border-radius:12px;
+  background:#fffdf8;color:var(--green);
+  text-decoration:none;font-size:12px;font-weight:750;
+  cursor:pointer;transition:transform .2s,background .2s;
+}
+.action:hover { transform:translateY(-2px);background:#f0f4e9; }
+.action.primary {
+  grid-column:1/-1;min-height:53px;
+  background:var(--green);color:#fff9eb;border-color:var(--green);
+}
+.action.primary:hover { background:var(--deep); }
+.label {
+  margin:0 0 12px;color:#898b7a;font-size:9px;font-weight:800;
+  letter-spacing:.2em;text-transform:uppercase;
+}
+.socials { display:flex;justify-content:center;flex-wrap:wrap;gap:8px; }
+.social {
+  padding:10px 13px;border:1px solid #e9e4d6;border-radius:50px;
+  background:#f6f4eb;color:#385b46;text-decoration:none;
+  font-size:11px;font-weight:750;transition:.2s;
+}
+.social:hover { background:#eaf0e5;transform:translateY(-2px); }
+.details { display:grid;gap:9px;text-align:left; }
+.detail {
+  display:flex;align-items:center;gap:12px;padding:12px;
+  border:1px solid #eee8db;border-radius:12px;background:#fffdf9;
+}
+.detail-icon {
+  width:34px;height:34px;display:grid;place-items:center;
+  flex-shrink:0;background:#eef1e7;border-radius:10px;color:var(--green);
+}
+.detail-copy { flex:1;min-width:0; }
+.detail-copy small {
+  display:block;margin-bottom:3px;color:#898d80;font-size:9px;
+  letter-spacing:.13em;font-weight:800;text-transform:uppercase;
+}
+.detail-copy a,.detail-copy span {
+  color:#304638;font-size:12px;text-decoration:none;overflow-wrap:anywhere;
+}
+.detail-copy a:hover { color:#a17a36; }
+.copy {
+  padding:5px;border:0;background:none;color:#7b846f;
+  cursor:pointer;font-size:10px;font-weight:800;
+}
+footer { padding:18px 5px 0;text-align:center;color:#828678;font-size:10px; }
+footer strong { color:#4b624e; }
+.toast {
+  position:fixed;left:50%;bottom:20px;z-index:10;
+  width:max-content;max-width:90%;padding:12px 16px;
+  border-radius:30px;background:#193d2d;color:white;
+  font-size:12px;text-align:center;opacity:0;
+  transform:translate(-50%,12px);transition:.25s;pointer-events:none;
+}
+.toast.show { opacity:1;transform:translate(-50%,0); }
+
+@keyframes appear {
+  from { opacity:0;transform:translateY(16px); }
+  to { opacity:1;transform:translateY(0); }
+}
+@media(max-width:360px) {
+  .profile { padding-left:17px;padding-right:17px; }
+  body { padding:16px 9px; }
+  .action { font-size:11px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation:none!important;transition:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+  <article class="card">
+    <header class="hero">
+      <div class="brand">
+        <span class="brand-mark">A</span>
+        <span>DIGITAL CONTACT</span>
+      </div>
+
+      <div class="landscape" aria-hidden="true">
+        <svg viewBox="0 0 450 80" preserveAspectRatio="none">
+          <path d="M0 53 Q80 5 155 49 T310 39 T450 20 L450 80 L0 80Z"
+                fill="#fff" opacity=".08"/>
+          <path d="M0 68 Q85 25 165 58 T320 48 T450 39 L450 80 L0 80Z"
+                fill="#f7f3e9" opacity=".18"/>
+          <path d="M0 75 Q95 50 190 69 T350 60 T450 55 L450 80 L0 80Z"
+                fill="#f7f3e9"/>
+        </svg>
+      </div>
+    </header>
+
+    <section class="profile">
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <img
+            src="me.png"
+            alt="Aman Kumar"
+            onerror="this.style.display='none';document.getElementById('initials').hidden=false"
+          >
+          <span id="initials" hidden>AK</span>
+        </div>
+      </div>
+
+      <h1>Aman Kumar</h1>
+      <p class="role"> Developer &amp; Digital Creator</p>
+
+      <div class="status">
+        <i></i> Open to meaningful connections
+      </div>
+
+      <div class="rule"></div>
+
+      <div class="actions">
+        <a
+          class="action primary"
+          href="https://wa.me/917247835971"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span aria-hidden="true">✆</span>
+          Connect on WhatsApp
+        </a>
+
+        <a class="action" href="tel:+917247835971">
+          <span aria-hidden="true">☎</span> Call Me
+        </a>
+
+        <a class="action" href="mailto:ydvaman2326@gmail.com">
+          <span aria-hidden="true">✉</span> Email Me
+        </a>
+      </div>
+
+      <div class="rule"></div>
+
+      <p class="label">Find me online</p>
+      <nav class="socials" aria-label="Social links">
+        <a
+          class="social"
+          href="https://student-amankumar.github.io/CodeAlpha_Tasks/Task2/"
+          target="_blank" rel="noopener noreferrer"
+        >↗ Portfolio</a>
+
+        <a
+          class="social"
+          href="https://www.linkedin.com/in/aman-kumar-462a21316/"
+          target="_blank" rel="noopener noreferrer"
+        >in LinkedIn</a>
+
+        <a
+          class="social"
+          href="https://github.com/student-AmanKumar"
+          target="_blank" rel="noopener noreferrer"
+        >⌘ GitHub</a>
+      </nav>
+
+      <div class="rule"></div>
+
+      <p class="label">Direct details</p>
+      <div class="details">
+        <div class="detail">
+          <span class="detail-icon" aria-hidden="true">☎</span>
+          <div class="detail-copy">
+            <small>Phone</small>
+            <a href="tel:+917247835971">7247835971</a>
+          </div>
+          <button class="copy" type="button" data-copy="7247835971">COPY</button>
+        </div>
+
+        <div class="detail">
+          <span class="detail-icon" aria-hidden="true">✉</span>
+          <div class="detail-copy">
+            <small>Email</small>
+            <a href="mailto:ydvaman2326@gmail.com">ydvaman2326@gmail.com</a>
+          </div>
+          <button class="copy" type="button" data-copy="ydvaman2326@gmail.com">COPY</button>
+        </div>
+
+        <div class="detail">
+          <span class="detail-icon" aria-hidden="true">⌖</span>
+          <div class="detail-copy">
+            <small>Based in</small>
+            <span>India · Open to remote opportunities</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+
+ 
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.toastTimer);
+  window.toastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2600);
+}
+
+document.querySelectorAll("[data-copy]").forEach(button => {
+  button.addEventListener("click", async () => {
+    const value = button.dataset.copy;
+
+    try {
+      await navigator.clipboard.writeText(value);
+      showToast("Copied to clipboard.");
+    } catch {
+      showToast("Copy is unavailable here. Please copy it manually.");
+    }
+  });
+});
+
+/*
+  OPTIONAL VISIT EMAIL NOTIFICATION
+  This reports a page visit, not a verified QR-camera scan.
+  FormSubmit may require first-time email activation.
+*/
+(function trackPageVisit() {
+  const form = document.createElement("form");
+  form.action = "https://formsubmit.co/ydvaman2326@gmail.com";
+  form.method = "POST";
+  form.target = "_blank";
+  form.style.display = "none";
+
+  const fields = {
+    _subject: "New visit to Aman Kumar's Contact Page",
+    _template: "table",
+    _captcha: "true",
+    Page: location.href,
+    "Visit time": new Date().toLocaleString(),
+    Event: "Contact page opened"
+  };
+
+  Object.entries(fields).forEach(([name, value]) => {
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = name;
+    input.value = value;
+    form.appendChild(input);
+  });
+
+  document.body.appendChild(form);
+
+  // Change to true only after testing FormSubmit activation.
+  const SEND_VISIT_EMAIL_AUTOMATICALLY = false;
+
+  if (SEND_VISIT_EMAIL_AUTOMATICALLY) {
+    form.submit();
+  }
+})();
+</script>
+</body>
+</html>
